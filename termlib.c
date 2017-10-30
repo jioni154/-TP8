@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include "termlib.h"
-extern int getch();
+
 // Turns terminal line buffering on or off
  
 void changemode(int mode)
