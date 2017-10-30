@@ -11,7 +11,7 @@ void bitSet (puerto *prt, unsigned int num)	//los bits van de 0 a 7
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -24,7 +24,7 @@ void bitClear (puerto *prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -40,7 +40,7 @@ unsigned int getBit (puerto prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 	return rta;
 }	
@@ -53,7 +53,7 @@ void maskOn (puerto *prt, unsigned int num)	//los bits van de 0 a 7
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -65,7 +65,7 @@ void maskOff (puerto *prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -93,7 +93,7 @@ void bitSet_D (puertoD *prt, unsigned int num)	//los bits van de 0 a 7
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -106,7 +106,7 @@ void bitClear_D (puertoD *prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -122,7 +122,7 @@ unsigned int getBit_D (puertoD prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 	return rta;
 }	
@@ -135,7 +135,7 @@ void maskOn_D (puertoD *prt, unsigned int num)	//los bits van de 0 a 7
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
 
@@ -147,6 +147,6 @@ void maskOff_D (puertoD *prt, unsigned int num)
 	}
 	else
 	{
-		printf("parametro invalido");
+		printf("parametro invalido\n");
 	}
 }
