@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "def.h"
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
