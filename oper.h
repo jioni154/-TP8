@@ -11,3 +11,4 @@ void bitClear_D (puertoD *prt, unsigned int num);
 unsigned int getBit_D (puertoD prt, unsigned int num);
 void maskOn_D (puertoD *prt, unsigned int num);
 void maskOff_D (puertoD *prt, unsigned int num);
+void blink(puerto *prt);
