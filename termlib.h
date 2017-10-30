@@ -1,17 +1,8 @@
-/* kblib v3.0 
-
-Linux support for keyboard functions for getch and getche and kbhit 
-ansy.sys Like functions added
-* 
-by Daniel Jacoby 10 oct 2016 
-*/
-
 #ifndef KBLIB_H
 #define KBLIB_H
 
 int getch(void);	  // Get a key without waiting for it (no echo) 
 int getche(void);	  // Get a key without waiting for it (with echo) 
-int kbhit(void);	  // Returns 1 if a key is waiting in the keyboad buffer
 void changemode(int); // Turns terminal line buffering on or off
  
 

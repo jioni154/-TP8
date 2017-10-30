@@ -3,9 +3,10 @@
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "termlib.h"
 
-void blink(puerto *prt);
-int kbhit(void);
+
+int kbhit (void);
 
 int main (void)
 {
@@ -14,12 +15,13 @@ int main (void)
 	int loop=0;
 while(loop==0)
 {
+	printf("Con numeros prendes los leds, con s apagas todos, con c prendes todos, y con b la haces prenderse y apagarse\n presiona esc para terminar el programa\n");	
 	int tempnum,caso;	
 	char c;
-	c=getchar();
-	if(!(c<0||c>9))
+	c=getch();
+	if(!(c<'0'||c>'7'))
 	{
-	tempnum=(c-'0');
+	tempnum=((c)-'0');
 	caso=1;
 	}
 	else if(c=='b')
@@ -28,7 +30,7 @@ while(loop==0)
 	caso=3;
 	else if(c=='c')
 	caso=5;
-	else if(c==28)
+	else if(c==27)
 	caso=6;
 	else 
 	caso=4;
@@ -47,57 +49,18 @@ case 4:
 break;
 case 5: maskOn(&(p.pA),255);
 break;
-case 6: loop=1;
+case 6:
+return 0;
 break;
 }
+
+printf("%d %d %d %d %d %d %d %d \n", p.pA.prt.b7, p.pA.prt.b6, p.pA.prt.b5, p.pA.prt.b4, p.pA.prt.b3, p.pA.prt.b2, p.pA.prt.b1, p.pA.prt.b0);
+
+getchar();
 }
 
-//debug
-printf("%c \n",p.pA.dec);
 
 
 return 0;
 }	
 
-
-void blink(puerto *prt)
-{	
-	int blinknum;
-	blinknum=(prt->dec);
-	while(!kbhit())
-	{	
-		prt->dec=0;
-		sleep(1);
-		prt->dec=blinknum;
-		sleep(1);
-	}
-	sleep(2);
-}
-
-int kbhit(void)
-
-{
-  struct termios oldt, newt;
-  int ch;
-  int oldf;
- 
-  tcgetattr(STDIN_FILENO, &oldt);
-  newt = oldt;
-  newt.c_lflag &= ~(ICANON | ECHO);
-  tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-  oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
-  fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
- 
-  ch = getchar();
- 
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-  fcntl(STDIN_FILENO, F_SETFL, oldf);
- 
-  if(ch != EOF)
-  {
-    ungetc(ch, stdin);
-    return 1;
-  }
- 
-  return 0;
-}

@@ -36,11 +36,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/MAIN.o \
-	${OBJECTDIR}/operaciones.o
+	${OBJECTDIR}/operaciones.o \
+	${OBJECTDIR}/pAcontrol.o \
+	${OBJECTDIR}/termlib.o
 
 
 # C Compiler Flags
-CFLAGS=
+CFLAGS=operaciones.c termlib.c
 
 # CC Compiler Flags
 CCFLAGS=
@@ -72,6 +74,16 @@ ${OBJECTDIR}/operaciones.o: operaciones.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/operaciones.o operaciones.c
+
+${OBJECTDIR}/pAcontrol.o: pAcontrol.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/pAcontrol.o pAcontrol.c
+
+${OBJECTDIR}/termlib.o: termlib.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/termlib.o termlib.c
 
 # Subprojects
 .build-subprojects:
